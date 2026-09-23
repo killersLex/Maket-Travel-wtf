@@ -4,35 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wander Loom</title>
-    <link rel="stylesheet" href="./asets/css/style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/vendor/swiper-bundle.min.css">
+    <script src="asets/vendor/swiper-bundle.min.js"></script>
+    <script defer="" src="js/main.js"></script>
+    <link
+      href="assets/icons/wanderloom-mark.svg"
+      rel="icon"
+      type="image/svg+xml"
+    />
+    <link
+      as="font"
+      crossorigin=""
+      href="assets/fonts/lato-regular.woff2"
+      rel="preload"
+      type="font/woff2"
+    />
 </head>
 
-<body>
-    <div class="header">
-        
-        <div class="logotype">
-            <img src="./asets/img/logo.svg" alt="Логотип">
-            <h1>Wander Loom</h1>
-        </div>
-        <div class="text">
-            <a href="#">Главная</a>
-            <a href="#">Направления</a>
-            <a href="#">Блог</a>
-            <a href="#">Полезная информация</a>
-            <a href="#">Галерея</a>
-            <a href="#">Контакты</a>
-        </div>
-    </div>
-    <div class="main">
-        <div class="welcome">
-            <img src="./asets/img/druid famaly.jpg" alt="3 медведя на побережье">
-        </div>
-    
-    </div>
-    <div class="footr">
+ <body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
 
-    </div> 
-</body>
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a aria-label="WanderLoom - на главную" class="brand" href="#top">
+          <img
+            alt=""
+            class="brand-mark"
+            decoding="async"
+            height="112"
+            src="assets/icons/wanderloom-mark.svg"
+            width="111"
+          />
+          <span class="brand-text">
+            Wander
+            <br />
+            Loom
+          </span>
+        </a>
 
+        <!-- Кнопка мобильного меню (Бургер) -->
+        <button
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          class="menu-button"
+          data-menu-button=""
+          type="button"
+        >
+          <span class="visually-hidden">Открыть меню</span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Основная навигация сайта -->
+        <nav
+          aria-label="Основная навигация"
+          class="site-nav"
+          data-navigation=""
+          id="primary-navigation"
+        >
+          <ul class="site-nav-list">
+            <li>
+              <a href="#top">Главная</a>
+            </li>
+            <li>
+              <a href="#routes">Направления</a>
+            </li>
+            <li>
+              <a href="#program">Программа</a>
+            </li>
+            <li>
+              <a href="#gallery">Галерея</a>
+            </li>
+            <li>
+              <a href="#contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+
+    <!-- Начало основного контента страницы -->
+    <main id="main-content">
+      <section aria-labelledby="hero-title" class="hero" id="top">
+        <div aria-hidden="true" class="hero-shade"></div>
+        <div class="container hero-content">
+          <!-- Далее идет контент первого экрана -->
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

@@ -5,55 +5,206 @@
     box-sizing: border-box;
     
 }
-:root{
-    color-scheme: light;
-    --collor-ink: #212121;
-    --collor-ink-soft: #5a5a5a;
-    --collor-paper: #ffffff;
-    --collor-dark: #f47648;
-    --color-teal: #275553;
-    --color-line: #d9d9d9;
-    --color-focus: #198580;
-}
-.header{
-    display: flex;
-    justify-content: space-between;
-     align-items: center;/* Выравнивание по центру */
-    height: 120px;
-    width: 100%;
-    padding-left: 187px;
-    padding-right: 187px;
-    position: absolute;
-}
-.logotype{
-    display: flex;
-    height: 111px;
-    width: 112px;
-    gap: 7px;
-}
-.logotype h1{
-    font-size: 50px;
-    color: var(--collor-paper);
-}
-.text{
-    display: flex;
-    gap: 25px;
-    line-height: 1.5;
-}
-.text a{
-    color: var(--collor-paper);
-    text-decoration: none;
-    font-size: 30px;
+*,
+*::before,
+*::after{
+box-sizing: border-box;
 }
 
-.main{
-    width: 100%;
+html{
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
 }
-.welcome{
-    width: 100%;
-    height: 1000px;
+
+body{
+    margin: 0;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.5;
 }
-.welcome img{
-    width: 100%;
-    height: 1000px;
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea{
+    font: inherit;
+}
+@font-face {
+    font-family: Intager;
+    src: url(../asets/fonts/inter-cyrillic.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    unicode-range: U+0400-45F, U+0400-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+    font-family: Intager;
+    src: url(../asets/fonts/inter-latin.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: lato;
+    src: url(../asets/fonts/lato-black.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: lato;
+    src: url(../asets/fonts/lato-bold.woff2) format("woff2");
+    font-style: bold;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: lato;
+    src: url(../asets/fonts/lato-regular.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+@font-face {
+    font-family: montserrat;
+    src: url(../asets/fonts/montserrat-cyrillic.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+:root{
+    /* #region Color */
+    color-scheme: light;
+    --color-ink: #212121;
+    --color-muted: #5a5a5a;
+    --color-paper: #fff;
+    --color-dark: #000;
+    --color-surface: #f1f1f1;
+    --color-dialog: #e8e5df;
+    --color-brand: #f47648;
+    --color-teal: #275553;
+    --color-focus: #198580;
+    --color-line: #b2b2b2;
+    --color-light-copy: #acacac;     /* #endregion */
+    /* #region fonts Шрифты*/
+    --font-sans: Lato, Arial, sans-serif;
+    --font-heading: Inter, Arial, sans-serif;
+    --font-quote: Montserrat, Inter, sans-serif; 
+    --weight-bold: 700;
+    --weight-medium: 600;    /* #endregion */
+    /* #region Адаптивность текста*/
+    --text-base: clamp(0.875rem, 0.863vw, 1rem); /* Настройки текста для статей и т.п.*/
+    --text-sm: clamp(0.75rem, 0.755vw, 0.875rem); /* Настройки текста для мелочи всякой*/
+    --text-lg: clamp(1.125rem, 1.294vw, 1.5rem); /* Настройки текста для заголовков*/
+    --text-display: clamp(2.25rem, 3.452vw, 4rem); /* Настройки текста для того что должно быть больше всего*/
+    --text-section: clamp(1.75rem, 2.589vw, 3rem);/* Настройки текста для Подписи секций*/
+    --text-route: clamp(1.5rem, 2.157vw, 2.5rem); /* Настройки текста для заголовков карточек*/    /* #endregion */
+    /* #region отступы и сейв зоны */
+    --container: 93.75rem;
+    --page-gutter: clamp(1.25rem, 9.55vw, 11.0625rem);
+    --page-edge: max(var(--page-gutter), calc((100vw - var(--container)) / 2));
+    --section-space: clamp(3.5rem, 4.477vw, 5.1875rem); /* #endregion */
+    /* #region отступы межтекстовые */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: clamp(2rem, 3.02vw, 3.5rem);     /* #endregion */
+    /* #region Параметры карточек */
+    --hero-card: clamp(10.5rem, 14.51vw, 16.8125rem);
+    --route-card: clamp(12rem, 17.26vw, 20rem);
+    --slider-gap: 32;    /* #endregion */
+    /* #region Параметры аниамций */
+    --transition: 220ms ease;
+    --motion-duration: 550ms;
+    --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --shadow-card: 0 0.75rem 2rem rgb(0 0 0 / 12%);    /* #endregion */
+}
+
+h2,
+h1,
+p,
+figure,
+blockquote,
+dl,
+dd{
+margin: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+[id] {
+    scroll-margin-block: 2rem;
+}
+
+button,
+a {
+    /* Отключает стандартную сине-серую подсветку при нажатии на ссылки и кнопки на смартфонах (iOS/Android) */
+    -webkit-tap-highlight-color: transparent;
+    transition:    /* Плавно меняет параметры, используя время и функцию скорости из переменной */
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        opacity var(--transition),
+        transform var(--transition);
+}
+
+button{
+    cursor: pointer;
+}
+
+a{
+    color: inherit;
+    text-underline-offset: 0.2em;
+}
+/* выполняет внутренник код при наведению на что либо при помощи Tab */
+:focus-visible {
+    /* Создает внешнюю контурную рамку толщиной 0.1875rem, сплошной линией (solid)*/
+    outline: 0.1875rem solid var(--color-focus);
+    /* Задает отступ контурной рамки от краев элемента на 0.25rem*/
+    outline-offset: 0.25rem;
+}
+
+.section,
+.roue-section{
+    padding-block: var(--section-space);
+}
+.section-dark{
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+.title{
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1;
+}
+.title-secrition{
+    font-size: var(--text-section);
+}
+.title-substraction{
+    font-size: var(--text-lg);
+    line-height: 1.3;
+}
+
+.roue-title,
+.program .title-section,
+.gallery .title-section{
+    font-size: var(--text-route);
+    line-height: 1.25;
 }
